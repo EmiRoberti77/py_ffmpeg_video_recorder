@@ -69,7 +69,7 @@ if __name__ == "__main__":
     while True:
         TEST_URL = "http://takemotopiano.aa1.netvolante.jp:8190/nphMotionJpeg?Resolution=640x480&Quality=Standard&Framerate=30"
         id = random.randint(0,1000)
-        OUTPUT_FILE = f"output{id}.mp4"
+        OUTPUT_FILE = f"/Users/user/recording/output{id}.mp4"
         DURATION = 10  # seconds
         recorder = FFmpegRecorder(url=TEST_URL, duration_in_sec=DURATION, output=OUTPUT_FILE)
         recorder.start()
