@@ -1,7 +1,7 @@
 import subprocess
 import time
 from threading import Timer
-
+import random
 
 class FFmpegRecorder:
     def __init__(self, url: str, duration_in_sec: int, output: str):
@@ -66,9 +66,11 @@ class FFmpegRecorder:
 
 if __name__ == "__main__":
     # Example usage
-    TEST_URL = "http://takemotopiano.aa1.netvolante.jp:8190/nphMotionJpeg?Resolution=640x480&Quality=Standard&Framerate=30"
-    OUTPUT_FILE = "output.mp4"
-    DURATION = 10  # seconds
-
-    recorder = FFmpegRecorder(url=TEST_URL, duration_in_sec=DURATION, output=OUTPUT_FILE)
-    recorder.start()
+    while True:
+        TEST_URL = "http://takemotopiano.aa1.netvolante.jp:8190/nphMotionJpeg?Resolution=640x480&Quality=Standard&Framerate=30"
+        id = random.randint(0,1000)
+        OUTPUT_FILE = f"output{id}.mp4"
+        DURATION = 10  # seconds
+        recorder = FFmpegRecorder(url=TEST_URL, duration_in_sec=DURATION, output=OUTPUT_FILE)
+        recorder.start()
+        print('completed', OUTPUT_FILE)
